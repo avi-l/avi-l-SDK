@@ -50,7 +50,6 @@ describe("AviLoTRSDK", () => {
   it("should retrieve a specific character", async () => {
     const characterId = "5cd99d4bde30eff6ebccfe9e";
     const character = await sdk.getCharacterById(characterId);
-    console.log(character, "character");
     expect(character).toBeDefined();
     expect(character._id).toEqual(characterId);
   });

@@ -125,6 +125,25 @@ const charaters = await sdk.getCharacters({ limit: 10, offset: 0, page: 1 });
 
 If an error occurs during API requests, the SDK will throw an error with relevant information. It's important to handle these errors gracefully in your application.
 
+## Testing
+
+The AviLoTRSDK package includes a test suite using Jest. The tests are automatically executed when you run the following commands:
+
+- `npm run build`: Builds the SDK and runs the test suite.
+- `npm publish`: Publishes the SDK to the package registry after running the build and tests.
+
+Before running the tests, make sure you have a `.env` file in the root of your project that contains the following:
+
+```
+API_KEY=your_api_key_here
+```
+
+To run the tests separately, use the following command:
+
+```bash
+npm test
+```
+
 ## Contribution Guidelines
 
 Contributions to the Avi-L-LoTR-SDK are welcome! Please follow the guidelines in the CONTRIBUTING.md file for submitting pull requests and reporting issues.
