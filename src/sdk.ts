@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
+import { Character, Movie, Quote } from "./types";
 
 const BASE_URL = "https://the-one-api.dev/v2";
 
@@ -19,54 +20,54 @@ export default class AviLoTRSDK {
     limit?: number,
     offset?: number,
     page?: number
-  ): Promise<any[]> {
+  ): Promise<Movie[]> {
     const response: AxiosResponse = await this.axiosApi.get("/movie", {
       params: { limit, offset, page },
     });
-    return response.data;
+    return response.data.docs;
   }
 
-  async getMovieById(id: string): Promise<any> {
-    const response: AxiosResponse = await this.axiosApi.get(`/movie/${id}`);
-    return response.data;
-  }
-
-  async getMovieQuotes(id: string): Promise<any> {
+  async getMovieQuotes(id: string): Promise<Quote> {
     const response: AxiosResponse = await this.axiosApi.get(
       `/movie/${id}/quote`
     );
-    return response.data;
+    return response.data.docs;
   }
 
   async getQuotes(
     limit?: number,
     offset?: number,
     page?: number
-  ): Promise<any[]> {
+  ): Promise<Quote[]> {
     const response: AxiosResponse = await this.axiosApi.get("/quote", {
       params: { limit, offset, page },
     });
-    return response.data;
-  }
-
-  async getQuoteById(id: string): Promise<any> {
-    const response: AxiosResponse = await this.axiosApi.get(`/quote/${id}`);
-    return response.data;
+    return response.data.docs;
   }
 
   async getCharacters(
     limit?: number,
     offset?: number,
     page?: number
-  ): Promise<any[]> {
+  ): Promise<Character[]> {
     const response: AxiosResponse = await this.axiosApi.get("/character", {
       params: { limit, offset, page },
     });
-    return response.data;
+    return response.data.docs;
   }
 
-  async getCharacterById(id: string): Promise<any> {
+  async getMovieById(id: string): Promise<Movie> {
+    const response: AxiosResponse = await this.axiosApi.get(`/movie/${id}`);
+    return response.data.docs[0];
+  }
+
+  async getQuoteById(id: string): Promise<Quote> {
+    const response: AxiosResponse = await this.axiosApi.get(`/quote/${id}`);
+    return response.data.docs[0];
+  }
+
+  async getCharacterById(id: string): Promise<Character> {
     const response: AxiosResponse = await this.axiosApi.get(`/character/${id}`);
-    return response.data;
+    return response.data.docs[0];
   }
 }
