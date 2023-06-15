@@ -1,0 +1,24 @@
+{
+  "name": "avi-l-lotr-sdk",
+  "version": "1.0.8",
+  "description": "An SDK for interacting with the Lord of the Rings API.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "sdk",
+    "api",
+    "lotr"
+  ],
+  "devDependencies": {
+    "axios": "^1.4.0",
+    "typescript": "^4.9.5"
+  }
+}
